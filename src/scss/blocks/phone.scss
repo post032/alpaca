@@ -1,0 +1,27 @@
+.phone {
+  display: flex;
+  align-items: center;
+  grid-gap: 10px;
+  align-self: flex-end;
+  margin: 0 20px 0 auto;
+  padding: 11px;
+  @media screen and (min-width: 376px){
+    margin: 0;
+  }
+  &__text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #FFFFFF;
+    display: none;
+    @media screen and (min-width: 376px){
+      display: block;
+    }
+  }
+
+  &__svg {
+    width: 18px;
+    height: 18px;
+  }
+}

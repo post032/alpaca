@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  font-family: $font;
+}
+
+._overlay {
+  position: relative;
+  overflow: hidden;
+  @media screen and (min-width: 769px) {
+    overflow: visible;
+  }
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $dark-opacity;
+    z-index: 5;
+    @media screen and (min-width: 769px) {
+      content: none;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  padding: 0 20px;
+}
+
+@media (min-width: 769px) {
+  .container {
+    padding: 0 22px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0;
+    max-width: 1967px;
+  }
+
+}

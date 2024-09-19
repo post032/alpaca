@@ -1,0 +1,41 @@
+.burger {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 3px;
+
+  &__line {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: $orange;
+    flex-shrink: 0;
+    transform-origin: 1px;
+    transition: transform 0.2s linear 0s,
+    opacity 0.1s linear 0s,
+    background-color 0.2s ease 0s;
+  }
+
+  &._opened {
+    grid-gap: 5.5px;
+
+    & .burger__line {
+
+      &:first-child {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.header {
+  background-color: $dark;
+  position: relative;
+  z-index: 6;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+
+  &__burger {
+    @media screen and (min-width: 769px){
+      display: none;
+    }
+  }
+}
