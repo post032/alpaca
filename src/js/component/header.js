@@ -3,6 +3,8 @@ const header = document.querySelector('.js-header')
 if(header) {
   const burger = header.querySelector('.js-burger')
   const nav = header.querySelector('.js-nav')
+  const btnsSubMenuTop = nav.querySelectorAll('.js-open-sub-nav.nav__link')
+  const btnsSubMenuBottom = nav.querySelectorAll('.js-open-sub-nav.nav__sub-link')
   const btnsSubMenu = nav.querySelectorAll('.js-open-sub-nav')
 
   const onCloseSubMenu = () => {
@@ -10,6 +12,28 @@ if(header) {
       btnSubMenu.classList.remove('_opened')
       btnSubMenu.nextElementSibling.classList.remove('_opened')
     })
+  }
+
+  const onCloseSubMenuBottom = () => {
+    btnsSubMenuBottom.forEach(itemBtnBottom => {
+      if(itemBtnBottom.closest('.js-open-sub-nav').classList.contains('_opened')) {
+        itemBtnBottom.classList.remove('_opened')
+        itemBtnBottom.nextElementSibling.classList.remove('_opened')
+      }
+
+    })
+  }
+
+  const onCloseSubMenuTop = () => {
+    btnsSubMenuTop.forEach(itemBtnTop => {
+      itemBtnTop.classList.remove('_opened')
+      itemBtnTop.nextElementSibling.classList.remove('_opened')
+    })
+  }
+
+  const onOpenMenu = (itemBtn) => {
+      itemBtn.classList.add('_opened')
+      itemBtn.nextElementSibling.classList.add('_opened')
   }
 
   burger.addEventListener('click', (e) => {
@@ -22,11 +46,25 @@ if(header) {
     }
   })
 
-  btnsSubMenu.forEach(btnSubMenu => {
-    btnSubMenu.addEventListener('click', (e) => {
+  btnsSubMenuTop.forEach(btnSubMenu => {
+    btnSubMenu.addEventListener('touchend', (e) => {
       e.preventDefault()
-      btnSubMenu.classList.toggle('_opened')
-      btnSubMenu.nextElementSibling.classList.toggle('_opened')
+      onCloseSubMenuTop()
+      onOpenMenu(e.target.closest('.js-open-sub-nav'))
     })
+  })
+
+  btnsSubMenuBottom.forEach(btnSubMenu => {
+    btnSubMenu.addEventListener('touchend', (e) => {
+      e.preventDefault()
+      onCloseSubMenuBottom()
+      onOpenMenu(e.target.closest('.js-open-sub-nav'))
+    })
+  })
+
+  document.addEventListener('touchend', (e) => {
+    if(!e.target.closest('.js-nav')) {
+      onCloseSubMenu()
+    }
   })
 }

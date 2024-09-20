@@ -1,95 +1,95 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8"/>
-    <link rel="icon" type="image/svg+xml" href="/logo.svg"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Vite App</title>
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="/logo.svg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alpaca</title>
 </head>
 <body>
 <header class="header js-header">
-    <div class="header__container container">
-        <a href="/" class="header__logo logo">
-            <svg class="logo__svg">
-                <use href="./src/img/sprite.svg#logo"></use>
+  <div class="header__container container">
+    <a href="/" class="header__logo logo">
+      <svg class="logo__svg">
+        <use href="./src/img/sprite.svg#logo"></use>
+      </svg>
+    </a>
+    <nav class="header__nav nav js-nav">
+      <ul class="nav__lists">
+        <li class="nav__item">
+          <a class="nav__link" href="">
+            <span class="nav__text">Главная</span>
+          </a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link js-open-sub-nav" href="">
+            <span class="nav__text">Основное меню</span>
+            <svg class="nav__drop-svg">
+              <use href="./src/img/sprite.svg#drop"></use>
             </svg>
-        </a>
-        <nav class="header__nav nav js-nav">
-            <ul class="nav__lists">
-                <li class="nav__item">
-                    <a class="nav__link" href="">
-                        <span>Главная</span>
-                    </a>
+          </a>
+          <ul class="nav__sub-lists">
+            <li class="nav__sub-item">
+              <a class="nav__sub-link" href="">
+                <span class="nav__text">Заказать вёрстку</span>
+              </a>
+            </li>
+            <li class="nav__sub-item">
+              <a class="nav__sub-link" href="">
+                <span class="nav__text">Отправить макет на проверку</span>
+              </a>
+            </li>
+            <li class="nav__sub-item">
+              <a class="nav__sub-link" href="">
+                <span class="nav__text">Хочу работать у вас</span>
+              </a>
+            </li>
+            <li class="nav__sub-item">
+              <a class="nav__sub-link js-open-sub-nav" href="">
+                <span class="nav__text">Есть предложение по работе с кл...</span>
+                <svg class="nav__drop-svg">
+                  <use href="./src/img/sprite.svg#drop"></use>
+                </svg>
+              </a>
+              <ul class="nav__sub-lists">
+                <li class="nav__sub-item">
+                  <a class="nav__sub-link" href="">
+                    <span class="nav__text">У меня есть оффер</span>
+                  </a>
                 </li>
-                <li class="nav__item">
-                    <a class="nav__link js-open-sub-nav" href="">
-                        <span>Основное меню</span>
-                        <svg class="nav__drop-svg">
-                            <use href="./src/img/sprite.svg#drop"></use>
-                        </svg>
-                    </a>
-                    <ul class="nav__sub-lists">
-                        <li class="nav__sub-item">
-                            <a class="nav__sub-link" href="">
-                                <span>Заказать вёрстку</span>
-                            </a>
-                        </li>
-                        <li class="nav__sub-item">
-                            <a class="nav__sub-link" href="">
-                                <span>Отправить макет на проверку</span>
-                            </a>
-                        </li>
-                        <li class="nav__sub-item">
-                            <a class="nav__sub-link" href="">
-                                <span>Хочу работать у вас</span>
-                            </a>
-                        </li>
-                        <li class="nav__sub-item">
-                            <a class="nav__sub-link js-open-sub-nav" href="">
-                                <span>Есть предложение по работе с кл...</span>
-                                <svg class="nav__drop-svg">
-                                    <use href="./src/img/sprite.svg#drop"></use>
-                                </svg>
-                            </a>
-                            <ul class="nav__sub-lists">
-                                <li class="nav__sub-item">
-                                    <a class="nav__sub-link" href="">
-                                        <span>У меня есть оффер</span>
-                                    </a>
-                                </li>
-                                <li class="nav__sub-item">
-                                    <a class="nav__sub-link" href="">
-                                        <span>Сделать партнёром</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                <li class="nav__sub-item">
+                  <a class="nav__sub-link" href="">
+                    <span class="nav__text">Сделать партнёром</span>
+                  </a>
                 </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="">
-                        <span>Наши сервисы</span>
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="">
-                        <span>Контакты</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <a class="header__phone phone" href="tel:+1(321)222-33-33">
-            <svg class="phone__svg">
-                <use href="./src/img/sprite.svg#phone"></use>
-            </svg>
-            <span class="phone__text">+1 (321) 222 - 33 -33</span>
-        </a>
-        <button type="button" class="header__burger burger js-burger">
-            <span class="burger__line"></span>
-            <span class="burger__line"></span>
-            <span class="burger__line"></span>
-        </button>
-    </div>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" href="">
+            <span class="nav__text">Наши сервисы</span>
+          </a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" href="">
+            <span class="nav__text">Контакты</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <a class="header__phone phone" href="tel:+1(321)222-33-33">
+      <svg class="phone__svg">
+        <use href="./src/img/sprite.svg#phone"></use>
+      </svg>
+      <span class="phone__text">+1 (321) 222 - 33 -33</span>
+    </a>
+    <button type="button" class="header__burger burger js-burger">
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+    </button>
+  </div>
 </header>
 <main class="alpaca"></main>
 <script type="module" src="./src/js/main.js"></script>

@@ -1,9 +1,13 @@
 .nav {
   display: none;
   max-width: 374px;
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 1024px) {
     display: block;
-    max-width: none;
+    max-width: 600px;
+    width: 100%;
+  }
+  @media screen and (min-width: 1200px) {
+    max-width: 678px;
   }
 
   &__lists,
@@ -16,10 +20,12 @@
   &__lists {
     height: calc(100vh - 80px);
     overflow-x: auto;
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: 1024px) {
       height: auto;
       overflow-x: visible;
       display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
   }
 
@@ -36,11 +42,12 @@
     grid-gap: 8px;
     background-color: $dark-light;
     border-bottom: 1px solid $dark;
+    position: relative;
   }
 
   &__link {
     font-size: 18px;
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: 1024px) {
       background-color: transparent;
       border: none;
       padding: 0;
@@ -49,30 +56,43 @@
 
   &__sub-link {
     font-size: 16px;
+    @media screen and (min-width: 1024px) {
+      padding: 8px 18px;
+      border-bottom: 1px solid $white-opacity;
+    }
   }
 
   &__drop-svg {
     width: 8px;
     height: 6px;
     transform: rotate(180deg);
+    transition: transform 0.2s ease;
   }
 
   &__sub-lists {
     max-height: 0;
     overflow: hidden;
+    @media screen and (min-width: 1024px) {
+      overflow: visible;
+      position: absolute;
+      top: 0;
+      max-height: none;
+      display: none;
+    }
   }
 
-  &__item {
-    @media screen and (min-width: 769px) {
+  &__text {
+    @media screen and (min-width: 1024px) {
+      white-space: nowrap;
+    }
+  }
+
+  &__item,
+  &__sub-item {
+    @media screen and (min-width: 1024px) {
       position: relative;
     }
-    &__sub-lists {
-      @media screen and (min-width: 769px) {
-        position: absolute;
-      }
-    }
   }
-
 
 
   &._opened {
@@ -84,27 +104,85 @@
     height: 100%;
     top: 80px;
     right: 0;
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: 1024px) {
       position: relative;
       height: auto;
-      width: auto;
       top: auto;
       right: auto;
     }
   }
 
   &__link._opened,
-  &__sub__link._opened {
+  &__sub-link._opened {
     background-color: $dark;
-    @media screen and (min-width: 769px) {
-      background-color: inherit;
-    }
+  }
+
+  &__link._opened {
     & .nav__drop-svg {
       transform: rotate(0);
-      transition: transform 0.2s ease;
-      @media screen and (min-width: 769px) {
-        transition: none;
-        //transform: rotate();
+    }
+
+    & + .nav__sub-lists._opened {
+      & .nav__sub-item:first-child > .nav__sub-link::after {
+        @media screen and (min-width: 1024px) {
+          content: "";
+          width: 28px;
+          height: 14px;
+          display: block;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-image: url("../img/icons/drop-arrow.svg");
+          position: absolute;
+          bottom: 100%;
+          left: 40px;
+          z-index: 10;
+        }
+      }
+    }
+  }
+
+  &__sub-link._opened {
+    & .nav__drop-svg {
+      @media screen and (min-width: 1024px) {
+        transform: rotate(90deg);
+      }
+    }
+
+    & + .nav__sub-lists._opened {
+      @media screen and (min-width: 1024px) {
+        padding-top: 0;
+        padding-left: 22px;
+        left: 100%;
+        bottom: 0;
+        top: auto;
+      }
+
+      & .nav__sub-item:first-child > .nav__sub-link::after {
+        content: none;
+      }
+
+      & .nav__sub-item:last-child > .nav__sub-link::after {
+        @media screen and (min-width: 1024px) {
+          content: "";
+          width: 28px;
+          height: 14px;
+          display: block;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-image: url("../img/icons/drop-arrow.svg");
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%) rotate(-90deg);
+          right: calc(100% - 8px);
+          z-index: 10;
+        }
+      }
+
+      & .nav__sub-item:first-child > .nav__sub-link {
+        @media screen and (min-width: 1024px) {
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+        }
       }
     }
   }
@@ -112,5 +190,95 @@
   &__sub-lists._opened {
     max-height: 1000px;
     transition: max-height 2s ease;
+    @media screen and (min-width: 1024px) {
+      display: block;
+      top: 100%;
+      padding-top: 29px;
+    }
+
+    & .nav__sub-item:last-child > .nav__sub-link {
+      @media screen and (min-width: 1024px) {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+    }
+  }
+}
+
+@media (hover: hover) {
+  .nav__item:hover {
+    & .nav__link {
+      color: $red;
+    }
+
+    & .nav__drop-svg {
+      transform: rotate(0);
+    }
+
+    & > .nav__sub-lists {
+      display: block;
+      padding-top: 50px;
+
+      & .nav__sub-item:last-child > .nav__sub-link {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+
+      & .nav__sub-item:first-child > .nav__sub-link::after {
+        content: "";
+        width: 28px;
+        height: 14px;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url("../img/icons/drop-arrow.svg");
+        position: absolute;
+        bottom: 100%;
+        left: 40px;
+        z-index: 10;
+      }
+    }
+  }
+
+  .nav__sub-item:hover {
+    & > .nav__sub-link {
+      background-color: $dark;
+    }
+
+    & .nav__drop-svg {
+      transform: rotate(90deg);
+    }
+
+    & > .nav__sub-lists {
+      display: block;
+      padding-left: 22px;
+      left: 100%;
+      bottom: 0;
+      top: auto;
+
+      & .nav__sub-item:first-child > .nav__sub-link {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+
+      & .nav__sub-item:first-child > .nav__sub-link::after {
+        content: none;
+      }
+
+      & .nav__sub-item:last-child > .nav__sub-link::after {
+        content: "";
+        width: 28px;
+        height: 14px;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url("../img/icons/drop-arrow.svg");
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg);
+        right: calc(100% - 8px);
+        z-index: 10;
+      }
+    }
   }
 }

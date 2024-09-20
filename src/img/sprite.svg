@@ -11,4 +11,7 @@
     <symbol id="drop" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M4.43433 0L8.43433 6H0.434326L4.43433 0Z" fill="#F2994A"/>
     </symbol>
+    <symbol id="drop-arrow" viewBox="0 0 28 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 0L28 14H0L14 0Z" fill="#252830"/>
+    </symbol>
 </svg>
